@@ -1,0 +1,14 @@
+local old = httpget_async
+getgenv().httpget_async = function(url, ...)
+    if url == 'https://www.stenutilities.com/discord/babft' then
+        return 'https://discord.gg/HjNaYs6AnV'
+    end
+    
+    if url == 'https://raw.githubusercontent.com/StenDirt/Trash-Game/main/UI.lua' then
+        return old('https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/ui.txt', ...)
+    end
+    
+    return old(url, ...)
+end
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/old.txt"),true))()
